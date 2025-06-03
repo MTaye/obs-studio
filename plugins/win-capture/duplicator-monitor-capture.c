@@ -745,7 +745,7 @@ static BOOL CALLBACK enum_monitor_props(HMONITOR handle, HDC hdc, LPRECT rect, L
 		DISPLAY_DEVICEA device;
 		device.cb = sizeof(device);
 		if (EnumDisplayDevicesA(mi.szDevice, 0, &device, EDD_GET_DEVICE_INTERFACE_NAME)) {
-			obs_property_list_add_string(monitor_list, monitor_desc.array, device.DeviceID);
+			obs_property_list_add_string(monitor_list, monitor_desc.array, mi.szDevice);
 		} else {
 			blog(LOG_WARNING,
 			     "[duplicator-monitor-capture] EnumDisplayDevices failed for monitor (%s), falling back to szDevice",
